@@ -1,3 +1,16 @@
+//36
+let ab = [1, 2, 3];
+
+let ba = [...ab];
+
+ba.push(4);
+
+console.log(ab, ba) // [ 1, 2, 3 ] [ 1, 2, 3, 4 ]
+
+ ab[10] = 99;
+
+console.log(ab.length) // 11
+
 //35
 typeof isNaN; //NUMBER
 
