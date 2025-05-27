@@ -1,3 +1,43 @@
+//37
+const obj = {
+  one: 1,
+  two: {
+    three: 3,
+  },
+  four: {
+    five: 5,
+    six: {
+      seven: 7,
+    },
+    eight: 8,
+  },
+  nine: 9,
+};
+
+function flattenObject(obj, parentKey = "", result = {}) {
+  for (let [key, val] of Object.entries(obj)) {
+    const newKey = parentKey ? `${parentKey}.${key}` : key;
+    if (val && typeof val === "object" && !Array.isArray(val)) {
+      flattenObject(val, newKey, result);
+    } else {
+      result[newKey] = val;
+    }
+  }
+  return result;
+}
+
+const output = flattenObject(obj);
+console.log(output);
+
+//OUTPUT:
+// {
+//   one: 1,
+//   'two.three': 3,
+//   'four.five': 5,
+//   'four.six.seven': 7,
+//   'four.eight': 8,
+//   nine: 9
+// }
 //36
 let ab = [1, 2, 3];
 
@@ -5,11 +45,11 @@ let ba = [...ab];
 
 ba.push(4);
 
-console.log(ab, ba) // [ 1, 2, 3 ] [ 1, 2, 3, 4 ]
+console.log(ab, ba); // [ 1, 2, 3 ] [ 1, 2, 3, 4 ]
 
- ab[10] = 99;
+ab[10] = 99;
 
-console.log(ab.length) // 11
+console.log(ab.length); // 11
 
 //35
 typeof isNaN; //NUMBER
