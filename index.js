@@ -1,3 +1,20 @@
+//38
+const flatThisArr = [0, 1, [2, [3, [4, 5]]]];
+
+const flattenOutput = [];
+
+function flatenArr(a) {
+  for (let i = 0; i < a.length; i++) {
+    if (Array.isArray(a[i])) {
+      flatenArr(a[i]);
+    } else {
+      flattenOutput.unshift(a[i]);
+    }
+  }
+}
+
+flatenArr(flatThisArr);
+console.log(flattenOutput); //[ 5, 4, 3, 2, 1, 0 ]
 //37
 const obj = {
   one: 1,
