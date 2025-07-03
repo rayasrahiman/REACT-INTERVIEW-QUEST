@@ -1,3 +1,28 @@
+//40
+const objj = {};
+const obj2 = { name: "rayas" };
+const obj3 = { name: "rahiman" };
+
+const key1 = JSON.stringify(obj2); // or use Symbol('rayas')
+const key2 = JSON.stringify(obj3);
+
+objj[key1] = "harsh";
+objj[key2] = 48;
+
+console.log(objj[JSON.stringify(obj2)]); // OUTPUT: "harsh"
+
+//39
+console.log([1, 2, 3] + [4, 5, 6]); //1,2,34,5,6
+
+console.log(typeof null); //object
+
+var xz = 1;
+function print() {
+  console.log(xz);
+  var xz = 2;
+}
+
+print(); //undefined
 //38
 const flatThisArr = [0, 1, [2, [3, [4, 5]]]];
 
@@ -8,7 +33,6 @@ function flatenArr(a) {
     if (Array.isArray(a[i])) {
       flatenArr(a[i]);
     } else {
-      flattenOutput.unshift(a[i]);
     }
   }
 }
